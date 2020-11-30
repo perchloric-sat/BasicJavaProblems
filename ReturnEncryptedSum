@@ -1,0 +1,32 @@
+//Consider all alphabets in English have equivalent integer values like a=1 ; A=1 ; b=2 ; B=2 ; c=3 ; C=3 ..... z=26 ; Z=26.
+//Your task is to write a java method to find and return the encrypted sum as per the instructions.
+// If the input is Java, output should be 34. (sum of J=10, a=1, v=22, a=1)
+//Sample  input: Java
+//Sample output: 34
+
+
+
+public class Main {
+
+    public static void main(String[] args) {
+        System.out.println(EncSum("Java"));
+    }
+
+    public static int EncSum(String word) {
+        String revisedWord = word.toLowerCase();
+        char letter;
+        int sumT = 0;
+        for (int i = 0; i < revisedWord.length(); i++) {
+            letter = revisedWord.charAt(i);
+            if (letter >= 'A' && letter <= 'Z') {
+                int first = (int) letter - 'A' + 1;
+                sumT=sumT+first;
+            }
+            if (letter >= 'a' && letter <= 'z') {
+                int second = (int) letter - 'a' + 1;
+                sumT=sumT+second;
+            }
+        }
+        return sumT;
+    }
+}
